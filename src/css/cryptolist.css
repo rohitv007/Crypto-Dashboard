@@ -1,0 +1,108 @@
+* {
+    overflow-x: hidden;
+    font-weight: 400;
+}
+
+.crypto_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.crypto_row a {
+    display: flex;
+    height: 100px;
+    width: 80vw;
+    border: none;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    transition: 400ms;
+    border-radius: 8px;
+    margin: 0.3em auto;
+}
+
+.crypto_row a, a:active {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.crypto_row a:hover {
+    background: rgb(224, 224, 224);
+    color: #121212;
+}
+
+.crypto {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    width: 100%;
+}
+
+.crypto > * {
+    overflow: hidden;
+    width: 20vw;
+    margin: auto;
+    text-align: center;
+}
+
+.crypto_name {
+    display: flex;
+    justify-content: center;
+    /* justify-content: flex-start; */
+    align-items: center;
+}
+
+/* .crypto_cap {
+    display: flex;
+    justify-content: flex-end;
+} */
+
+.crypto_percent {
+    font-weight: 600;
+}
+
+.red {
+    color: rgb(238, 0, 0);
+}
+
+.green {
+    color: rgb(68, 221, 68);
+}
+
+/* @media only screen and (max-width: 767px) {
+    .crypto_name {
+        font-size: medium;
+    }
+    .crypto_symbol {
+        font-size: medium;
+    }
+    .crypto_price {
+        font-size: medium;
+    }
+    .crypto_percent {
+        font-size: medium;
+    }
+    .crypto_cap {
+        font-size: medium;
+    }
+} */
+
+@media only screen and (max-width: 600px) {
+    .crypto_name {
+        font-size: small;
+    }
+    .crypto_symbol {
+        font-size: small;
+    }
+    .crypto_price {
+        font-size: small;
+    }
+    .crypto_percent {
+        font-size: small;
+    }
+    .crypto_cap {
+        font-size: small;
+    }
+}
