@@ -88,7 +88,7 @@ function CryptoData() {
                             </Link>
                         </div>
                         <div className="singlecrypto">
-                            {/* <h3 style={{margin: '5% auto auto 5%'}}>{id.toUpperCase()}</h3> */}
+                            <h3 style={{margin: '5% auto auto 5%'}}>{id.toUpperCase()}</h3>
                             <CryptoChart cryptoData={timeprice} />
                         </div>
                     </div>
