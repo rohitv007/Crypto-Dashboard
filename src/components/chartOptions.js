@@ -1,7 +1,7 @@
 export const chartOptions = {
     lineHeightAnnotation: {
         always: true,
-        hover: false
+        // hover: false
     },
     animation: {
         duration: 2000,
@@ -11,12 +11,16 @@ export const chartOptions = {
     scales: {
         xAxes: [{
             type: "time",
+            time: {
+                unit: 'day',
+                unitStepSize: 1
+            },
             distribution: "linear",
             scaleLabel: {
                 display: true,
                 fontColor: "#f2f2f2",
                 fontSize: '18',
-                labelString: 'Date / Time'
+                labelString: 'Day'
             },
             ticks: {
                 fontColor: "#f2f2f2",
@@ -28,7 +32,7 @@ export const chartOptions = {
                 display: true,
                 fontColor: "#f2f2f2",
                 fontSize: '18',
-                labelString: 'Price'
+                labelString: 'Price (in $)'
             },
             ticks: {
                 fontColor: "#f2f2f2",

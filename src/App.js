@@ -9,6 +9,7 @@ import './App.css'
 import Crypto from './components/Crypto'
 import HeadSection from './components/HeadSection'
 import CryptoData from './components/CryptoData'
+import { Puff } from '@agney/react-loading';
 
 
 function App() {
@@ -55,25 +56,25 @@ function App() {
   // }
 
   return (
-    <div>
-      { 
+    <Router>
+      {
         isLoading ? (
-          <div>Loading...</div>
+          <div className="page_loader">
+            <Puff width="80" />
+          </div>
         ) : (
-          <Router>
-            <div className="App">
-              <Switch>
-                <Route path="/:id" exact component = {CryptoData} />
-                <Route path="/">
-                  <HeadSection type="text" placeholder="Search" onChange={handleSearch} />
-                  { search.valueOf().trim() !== "" ? <Crypto filteredCrypto={allCrypto} /> : <Crypto filteredCrypto={currencies} />}
-                </Route>
-              </Switch>
-            </div>
-          </Router>
+        <div className="App">
+          <Switch>
+            <Route path="/:id" exact component = {CryptoData} />
+            <Route exact path="/">
+              <HeadSection type="text" placeholder="Search" onChange={handleSearch} />
+              { search.valueOf().trim() !== "" ? <Crypto filteredCrypto={allCrypto} /> : <Crypto filteredCrypto={currencies} />}
+            </Route>
+          </Switch>
+        </div>
         )
       }
-    </div>
+    </Router>
   );
 }
 

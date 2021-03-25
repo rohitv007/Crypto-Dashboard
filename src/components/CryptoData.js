@@ -5,6 +5,9 @@ import { IoIosArrowBack } from 'react-icons/io'
 import axios from 'axios'
 import '../css/cryptodata.css'
 import CryptoChart from './CryptoChart'
+import { Puff } from '@agney/react-loading';
+import CryptoDetails from './CryptoDetails'
+
 
 function CryptoData() {
 
@@ -70,6 +73,13 @@ function CryptoData() {
 
         dataApiCall()
 
+        return () => {
+            setTimePrice({}); 
+            // to resolve console red warning 'Can't perform a React state update...' 
+            // by using a CLEANUP FUNCTION i.e. setting back initial states which were used inside Promise
+            // "To fix, cancel all subscriptions and asynchronous tasks in a useEffect cleanup function"
+        };
+
     }, [market_url, details_url, id])
 
     // console.log(timeprice);
@@ -78,7 +88,9 @@ function CryptoData() {
         <div>
             {
                 isLoading ? (
-                    <div>Loading...</div>
+                    <div className="page_loader">
+                        <Puff width="80"/>
+                    </div>
                 ) : (
                     <div className="singlecrypto_container">
                         <div className="top">
@@ -88,8 +100,8 @@ function CryptoData() {
                             </Link>
                         </div>
                         <div className="singlecrypto">
-                            <h3 style={{margin: '5% auto auto 5%'}}>{id.toUpperCase()}</h3>
                             <CryptoChart cryptoData={timeprice} />
+                            <CryptoDetails cryptoData={timeprice} />
                         </div>
                     </div>
                 )
